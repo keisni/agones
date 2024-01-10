@@ -68,7 +68,7 @@ func (e *gameServerSetCacheEntry) reconcileWithUpdatedServerList(list []*agonesv
 		if d := e.pendingDeletion[gs.Name]; d != nil {
 			if !gs.ObjectMeta.DeletionTimestamp.IsZero() {
 				// has deletion timestamp - return theirs
-				result = append(result, d)
+				result = append(result, gs)
 				delete(e.pendingDeletion, gs.Name)
 			} else {
 				result = append(result, d)
